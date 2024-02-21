@@ -1,0 +1,13 @@
+- hosts: webservers
+
+  roles:
+    - role: geerlingguy.pip
+      become: true
+    
+    - role: datadog.datadog
+      become: true
+
+  tasks:
+    - name: install pip docker
+      ansible.builtin.pip:
+        name: docker
